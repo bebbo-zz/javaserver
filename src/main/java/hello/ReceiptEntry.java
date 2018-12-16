@@ -1,4 +1,4 @@
-package com.graffl.maven.ReceiptPrinter;
+package hello;
 
 public class ReceiptEntry {
 	

@@ -1,4 +1,4 @@
-package com.graffl.maven.ReceiptPrinter;
+package hello;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;

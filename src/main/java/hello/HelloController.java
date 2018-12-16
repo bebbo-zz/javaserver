@@ -32,16 +32,12 @@ public class HelloController {
     public void print(@RequestBody Map<String, Object> payload) 
     		throws Exception {
     	 System.out.println(payload);
-    	 
-    	 LoadPrintRequests loadRequests = new LoadPrintRequests();
-         
+    	  
          Printer printer = null;
-         List<QueryDocumentSnapshot> documents = loadRequests.documents;
-         if(documents.size() > 0) {
+         if(payload != null) {
          	printer = new Printer();
          	
-         	for (QueryDocumentSnapshot document : loadRequests.documents) {
-       	      Map<String, Object> doc = document.getData();
+         	  Map<String, Object> doc = payload;
        	      
        	      ReceiptToPrint receipt = new ReceiptToPrint();
        	      receipt.setOrderid(doc.get("orderId"));
@@ -51,13 +47,10 @@ public class HelloController {
        	      receipt.setTotalChange();
        	      
        	      receipt.print(printer);
-       	    }
          	
          	printer = null;
          }  
     }
-    
-    
     
     // mvn package
     // java -jar target/pos-javaserver-0.1.0.jar
